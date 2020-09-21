@@ -1,6 +1,7 @@
 const Koa = require('koa');
+// 处理跨域
 const cors = require('koa-cors');
-
+// 处理post请求
 const bodyParser = require('koa-bodyparser')
 
 const app = new Koa();
