@@ -8,6 +8,7 @@ router.get('/jiagou', async (ctx) => {
   let params = ctx.params;
   let query = ctx.query.query;
   ctx.body = {
+    url,
     code: 200,
     data: {
       current_page: 1,

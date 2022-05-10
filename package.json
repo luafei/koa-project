@@ -5,16 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js"
+    "dev": "nodemon main.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.5",
+    "jsonwebtoken": "^8.5.1",
     "koa": "^2.13.0",
+    "koa-body": "^4.2.0",
     "koa-bodyparser": "^3.2.0",
     "koa-cors": "0.0.16",
+    "koa-jwt": "^4.0.3",
     "koa-router": "^9.4.0",
     "koa-static": "^5.0.0",
     "koa-views": "^6.3.0"

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JWT in Koa</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+    <button class="gt-btn">get token</button>
+    <button class="dt-btn">delete token</button>
+    <button class="api-btn">visit /api</button>
+    <script>
+        const rootUrl = "http://localhost:3000";
+        $(".gt-btn").on("click", () => {
+            $.ajax({
+                type: "get",
+                url: rootUrl+'/sign',
+                success (response) {
+                    localStorage.setItem("token", response.token);
+                }
+            });
+        });
+        $('.dt-btn').on("click", () => {
+            localStorage.removeItem("token");
+        });
+        $('.api-btn').on("click", () => {
+            $.ajax({
+                type: "get",
+                url: rootUrl+'/api',
+                beforeSend (request) {
+                  /* 将token添至请求头中 */
+                    request.setRequestHeader("Authorization", localStorage.getItem('token'));
+                }
+            });
+        });
+    </script>
+</body>
+</html>
